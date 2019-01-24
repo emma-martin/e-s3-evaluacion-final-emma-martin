@@ -16,7 +16,6 @@ class App extends Component {
       const resultsId = data.map((item, index) => {
         return {...item, id: index}
       });
-      
       this.setState({
         results: resultsId
       })
@@ -25,11 +24,28 @@ class App extends Component {
 
 
   render() {
+    const {results} = this.state;
     return (
       <div className="App">
         <header className="App-header">
-          <div>Holi</div>
+          <h1>Harry Potter Characters' Finder</h1>
+          <div>aqui el search</div>
         </header>
+        <main className="main">
+          <ul className="list">
+            {results.map(item => {
+              return (
+                <li className="list__item" id={item.id} key={item.id}>
+                  <div className="list__item-card">
+                    <img className="list__item-img" alt={item.name} src={item.image} />
+                    <h2>{item.name}</h2>
+                    <h3>{item.house}</h3>
+                  </div>
+                </li>
+              )
+            })}
+          </ul>
+        </main>
       </div>
     );
   }
