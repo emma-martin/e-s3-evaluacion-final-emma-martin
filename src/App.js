@@ -4,6 +4,7 @@ import {getCharacters} from './services/service';
 import Search from './components/Search';
 import {Route, Switch} from 'react-router-dom';
 import CharacterList from './components/CharacterList';
+import CharacterCard from './components/CharacterCard';
 
 class App extends Component {
   constructor(props){
@@ -24,6 +25,7 @@ class App extends Component {
       this.setState({
         results: resultsId
       })
+      console.log(this.state.results);
     });
   }
 
@@ -45,7 +47,7 @@ class App extends Component {
   }
 
   render() {
-    // const {results} = this.state;
+    const {results} = this.state;
     const filteredResults = this.filterCharacter();
     return (
       <div className="App">
@@ -58,6 +60,8 @@ class App extends Component {
         <main className="main">
           <Switch>
             <Route exact path="/" render={()=><CharacterList filteredResults={filteredResults}/>}/>
+            <Route path="/charactercard/:id" render={props=><CharacterCard match={props.match}results={results}/>} />
+            
           
           </Switch>
         </main>
