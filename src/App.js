@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {getCharacters} from './services/service';
+import Search from './components/Search';
 
 class App extends Component {
   constructor(props){
@@ -34,11 +35,8 @@ class App extends Component {
   filterCharacter(){
     const filteredCharacter = this.state.results.filter( item => {
         const nameCharacter =`${item.name}`;
-        if (this.state.search === "" || nameCharacter.toLocaleLowerCase().includes(this.state.search.toLocaleLowerCase())){
-          return true;
-        } else {
-          return false
-        }
+        return (this.state.search === "" || nameCharacter.toLocaleLowerCase().includes(this.state.search.toLocaleLowerCase())) 
+        // ? true : false; TODO: if something goes wrong, uncomment this.
       });
       return filteredCharacter;
 
@@ -51,9 +49,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Harry Potter Characters' Finder</h1>
-          <div className="search-field">
-            <input className="search-field__input" type="text" placeholder="find your fav character" onChange={this.handleInput}/>
-          </div>
+
+        <Search handleInput={this.handleInput}/>
+
         </header>
         <main className="main">
           <ul className="list">
