@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 class CharacterList extends Component {
     render() {
         const {filteredResults} = this.props;
@@ -20,5 +20,7 @@ class CharacterList extends Component {
         );
     }
 }
-
+CharacterList.propTypes ={
+    filteredResults: PropTypes.array
+}
 export default CharacterList;
