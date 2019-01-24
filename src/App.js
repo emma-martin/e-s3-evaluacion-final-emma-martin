@@ -9,7 +9,7 @@ class App extends Component {
       search: "",
       results: []
     }
-    this.handleSearch = this.handleSearch.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   componentDidMount(){
@@ -24,26 +24,40 @@ class App extends Component {
     });
   }
 
-  handleSearch(event){
+  handleInput(event){
     const userSearch = event.currentTarget.value;
     this.setState({
       search: userSearch
     });
   }
 
+  filterCharacter(){
+    const filteredCharacter = this.state.results.filter( item => {
+        const nameCharacter =`${item.name}`;
+        if (this.state.search === "" || nameCharacter.toLocaleLowerCase().includes(this.state.search.toLocaleLowerCase())){
+          return true;
+        } else {
+          return false
+        }
+      });
+      return filteredCharacter;
+
+  }
+
   render() {
-    const {results} = this.state;
+    // const {results} = this.state;
+    const filteredResults = this.filterCharacter();
     return (
       <div className="App">
         <header className="App-header">
           <h1>Harry Potter Characters' Finder</h1>
           <div className="search-field">
-            <input className="search-field__input" type="text" placeholder="find your fav character" onChange={this.handleSearch}/>
+            <input className="search-field__input" type="text" placeholder="find your fav character" onChange={this.handleInput}/>
           </div>
         </header>
         <main className="main">
           <ul className="list">
-            {results.map(item => {
+            {filteredResults.map(item => {
               return (
                 <li className="list__item" id={item.id} key={item.id}>
                   <div className="list__item-card">
