@@ -29,7 +29,9 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Harry Potter Characters' Finder</h1>
-          <div>aqui el search</div>
+          <div className="search-field">
+            <input className="search-field__input" type="text" placeholder="find your fav character"/>
+          </div>
         </header>
         <main className="main">
           <ul className="list">
