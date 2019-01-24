@@ -56,9 +56,10 @@ class App extends Component {
             </Switch>
         </header>
         <main className="main">
-
-          <CharacterList filteredResults={filteredResults}/>
-
+          <Switch>
+            <Route exact path="/" render={()=><CharacterList filteredResults={filteredResults}/>}/>
+          
+          </Switch>
         </main>
       </div>
     );

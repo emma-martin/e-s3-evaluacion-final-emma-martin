@@ -15,7 +15,6 @@ class CharacterList extends Component {
                             image={item.image}
                             house = {item.house}
                             />
-                            
                         </li>
                     )
                 })}
