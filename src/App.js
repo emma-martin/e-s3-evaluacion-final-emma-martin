@@ -3,6 +3,7 @@ import './App.css';
 import {getCharacters} from './services/service';
 import Search from './components/Search';
 import {Route, Switch} from 'react-router-dom';
+import CharacterList from './components/CharacterList';
 
 class App extends Component {
   constructor(props){
@@ -53,23 +54,11 @@ class App extends Component {
             <Switch>
               <Route exact path="/" render={()=><Search handleInput={this.handleInput}/>} />
             </Switch>
-            
-
         </header>
         <main className="main">
-          <ul className="list">
-            {filteredResults.map(item => {
-              return (
-                <li className="list__item" id={item.id} key={item.id}>
-                  <div className="list__item-card">
-                    <img className="list__item-img" alt={item.name} src={item.image} />
-                    <h2>{item.name}</h2>
-                    <h3>{item.house}</h3>
-                  </div>
-                </li>
-              )
-            })}
-          </ul>
+
+          <CharacterList filteredResults={filteredResults}/>
+
         </main>
       </div>
     );
