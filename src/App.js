@@ -45,7 +45,7 @@ class App extends Component {
   }
 
   render() {
-    // const {results} = this.state;
+    const {results} = this.state;
     const filteredResults = this.filterCharacter();
     return (
       <div className="App">
@@ -56,8 +56,7 @@ class App extends Component {
             </Switch>
         </header>
         <main className="main">
-
-          <CharacterList filteredResults={filteredResults}/>
+          <CharacterList filteredResults={filteredResults} results={results}/>
 
         </main>
       </div>
