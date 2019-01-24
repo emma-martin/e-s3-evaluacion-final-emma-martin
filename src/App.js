@@ -4,6 +4,7 @@ import {getCharacters} from './services/service';
 import Search from './components/Search';
 import {Route, Switch} from 'react-router-dom';
 import CharacterList from './components/CharacterList';
+import CharacterProfile from './components/CharacterProfile';
 
 class App extends Component {
   constructor(props){
@@ -56,8 +57,8 @@ class App extends Component {
             </Switch>
         </header>
         <main className="main">
-          <CharacterList filteredResults={filteredResults} results={results}/>
-
+          {/* <CharacterList filteredResults={filteredResults} results={results}/> */}
+          <CharacterProfile results={results}/>
         </main>
       </div>
     );

@@ -6,7 +6,6 @@ import CharacterCard from './CharacterCard';
 class CharacterList extends Component {
     render() {
         const {filteredResults} = this.props;
-        const {results} = this.props;
         return (
             <ul className="list">
                 {filteredResults.map(item => {
@@ -17,14 +16,8 @@ class CharacterList extends Component {
                             name={item.name}
                             image={item.image}
                             house={item.house}
-                            results={results}
                             />
                             {/* </Link> */}
-                            {/* <div className="list__item-card">
-                                <img className="list__item-img" alt={item.name} src={item.image} />
-                                <h2>{item.name}</h2>
-                                <h3>{item.house}</h3>
-                            </div> */}
                         </li>
                     )
                 })}
