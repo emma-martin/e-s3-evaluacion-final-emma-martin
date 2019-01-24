@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {getCharacters} from './services/service';
 import Search from './components/Search';
+import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
   constructor(props){
@@ -49,8 +50,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <h1>Harry Potter Characters' Finder</h1>
-
-        <Search handleInput={this.handleInput}/>
+            <Switch>
+              <Route exact path="/" render={()=><Search handleInput={this.handleInput}/>} />
+            </Switch>
+            
 
         </header>
         <main className="main">
