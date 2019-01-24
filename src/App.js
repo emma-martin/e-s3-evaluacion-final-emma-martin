@@ -58,7 +58,7 @@ class App extends Component {
         </header>
         <main className="main">
           {/* <CharacterList filteredResults={filteredResults} results={results}/> */}
-          <CharacterProfile results={results} idProfile={0}/>
+          <CharacterProfile results={results}/>
         </main>
       </div>
     );
