@@ -6,8 +6,10 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state ={
+      search: "",
       results: []
     }
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount(){
@@ -22,6 +24,12 @@ class App extends Component {
     });
   }
 
+  handleSearch(event){
+    const userSearch = event.currentTarget.value;
+    this.setState({
+      search: userSearch
+    });
+  }
 
   render() {
     const {results} = this.state;
@@ -30,7 +38,7 @@ class App extends Component {
         <header className="App-header">
           <h1>Harry Potter Characters' Finder</h1>
           <div className="search-field">
-            <input className="search-field__input" type="text" placeholder="find your fav character"/>
+            <input className="search-field__input" type="text" placeholder="find your fav character" onChange={this.handleSearch}/>
           </div>
         </header>
         <main className="main">
