@@ -5,7 +5,7 @@ import Search from './components/Search';
 import {Route, Switch} from 'react-router-dom';
 import CharacterList from './components/CharacterList/';
 import CharacterCard from './components/CharacterCard/';
-import CleanSearch from './components/CleanSearch';
+
 
 class App extends Component {
   constructor(props){
@@ -16,7 +16,6 @@ class App extends Component {
       loading: true
     }
     this.handleInput = this.handleInput.bind(this);
-    this.CleanSearch = this.CleanSearch.bind(this);
   }
 
   componentDidMount(){
@@ -48,12 +47,6 @@ class App extends Component {
       return filteredCharacter;
   }
 
-  CleanSearch(){
-    this.setState({
-      search: ""
-    })
-  }
-
   render() {
     const {results} = this.state;
     const filteredResults = this.filterCharacter();
@@ -71,7 +64,7 @@ class App extends Component {
             <Route exact path="/" render={()=><CharacterList filteredResults={filteredResults} loading={this.state.loading}/>}/>
             <Route path="/charactercard/:id" render={props=><CharacterCard match={props.match}results={results} loading={this.state.loading}/>} />
           </Switch>
-          <CleanSearch cleanInput={this.CleanSearch}/>
+          
         </main>
       </div>
     );
