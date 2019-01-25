@@ -13,6 +13,18 @@ Opens [http://localhost:3000](http://localhost:3000) to view it in the browser.
 This project is made using [React App](https://github.com/facebook/create-react-app) and is styled with SASS.
 
 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
-<img src="https://media.giphy.com/media/1lI97corSEnZu/giphy.gif" width="200" height="150">
+
+
+
+
 <sub><sup>Disclaimer: I haven't read any of the books nor watched any HP movies.</sup></sub>
+<br/>
+<img src="https://media.giphy.com/media/1lI97corSEnZu/giphy.gif" width="200" height="150">
+
