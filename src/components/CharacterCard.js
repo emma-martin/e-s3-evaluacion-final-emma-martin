@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment, Component } from 'react';
+import ReturnBtn from './ReturnBtn';
+// import PropTypes from 'prop-types'; can't set proptypes 'cause asyncrony
 class CharacterCard extends Component {
-
     render() {
         const {results} = this.props;
         const id = this.props.match.params.id;
@@ -25,18 +25,20 @@ class CharacterCard extends Component {
             }}
 
             return (
-                <div className="list__item-card">
-                    <img className="list__item-img" alt={name} src={image} />
-                    <h2>{name}</h2>
-                    <h3>{house}</h3>
-                    <h3>{dob}</h3>
-                    <h3>{patronus}</h3>
-                    <h3>{deadOrAlive()}</h3>
-                </div>
+                <Fragment>
+                    <div className="list__item-card">
+                        <img className="list__item-img" alt={name} src={image} />
+                        <h2>{name}</h2>
+                        <h3>{house}</h3>
+                        <h3>{dob}</h3>
+                        <h3>{patronus}</h3>
+                        <h3>{deadOrAlive()}</h3>
+                    </div>
+                    <ReturnBtn />
+                </Fragment>
+                
             );
         }
-        
-        
     }
 }
 // CharacterCard.propTypes ={
