@@ -15,11 +15,12 @@ class CharacterCard extends Component {
             const name = mago.name;
             const house = mago.house;
             const image = mago.image;
-            const dob = mago.dateOfBirth;
+            const date = mago.dateOfBirth;
+            const dob = date.slice(-4);
             const patronus = mago.patronus;
             const alive = mago.alive;
             const deadOrAlive =() =>{if(alive === true){
-                return <span>ALIVE</span>
+                return <span>VIVO</span>
             }else{
                 return <span role="img" aria-label="dead">💀</span>
             }}
@@ -29,10 +30,10 @@ class CharacterCard extends Component {
                     <div className="list__item-card">
                         <img className="list__item-img" alt={name} src={image} />
                         <h2>{name}</h2>
-                        <h3>{house}</h3>
-                        <h3>{dob}</h3>
-                        <h3>{patronus}</h3>
-                        <h3>{deadOrAlive()}</h3>
+                        <h3>Casa: {house}</h3>
+                        <h3>Nacimiento: {dob}</h3>
+                        <h3>Patronus: {patronus}</h3>
+                        <h3>Estado: {deadOrAlive()}</h3>
                     </div>
                     <ReturnBtn />
                 </Fragment>
