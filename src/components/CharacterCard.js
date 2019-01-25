@@ -18,6 +18,11 @@ class CharacterCard extends Component {
             const dob = mago.dateOfBirth;
             const patronus = mago.patronus;
             const alive = mago.alive;
+            const deadOrAlive =() =>{if(alive === true){
+                return <span>ALIVE</span>
+            }else{
+                return <span role="img" aria-label="dead">💀</span>
+            }}
 
             return (
                 <div className="list__item-card">
@@ -26,7 +31,7 @@ class CharacterCard extends Component {
                     <h3>{house}</h3>
                     <h3>{dob}</h3>
                     <h3>{patronus}</h3>
-                    <h3>{alive}</h3>
+                    <h3>{deadOrAlive()}</h3>
                 </div>
             );
         }
