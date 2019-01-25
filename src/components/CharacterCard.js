@@ -10,8 +10,6 @@ class CharacterCard extends Component {
             return <p>Loading</p>
         }
         else {
-            console.log(id);
-            console.log(mago.name);
             const name = mago.name;
             const house = mago.house;
             const image = mago.image;
@@ -24,7 +22,6 @@ class CharacterCard extends Component {
             }else{
                 return <span role="img" aria-label="dead">💀</span>
             }}
-
             return (
                 <Fragment>
                     <div className="list__item-card">
@@ -37,7 +34,6 @@ class CharacterCard extends Component {
                     </div>
                     <ReturnBtn />
                 </Fragment>
-                
             );
         }
     }

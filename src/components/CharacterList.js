@@ -17,7 +17,6 @@ class CharacterList extends Component {
                         </div>
                         </Link>
                         </li>
-                        
                     )
                 })}
             </ul>

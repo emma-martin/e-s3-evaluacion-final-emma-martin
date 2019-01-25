@@ -25,7 +25,6 @@ class App extends Component {
       this.setState({
         results: resultsId
       })
-      console.log(this.state.results);
     });
   }
 
@@ -40,10 +39,8 @@ class App extends Component {
     const filteredCharacter = this.state.results.filter( item => {
         const nameCharacter =`${item.name}`;
         return (this.state.search === "" || nameCharacter.toLocaleLowerCase().includes(this.state.search.toLocaleLowerCase())) 
-        // ? true : false; TODO: if something goes wrong, uncomment this.
       });
       return filteredCharacter;
-
   }
 
   render() {
@@ -52,7 +49,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Harry Potter Characters' Finder</h1>
+          <h1>Harry Potter Characters</h1>
             <Switch>
               <Route exact path="/" render={()=><Search handleInput={this.handleInput}/>} />
             </Switch>
@@ -61,8 +58,6 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={()=><CharacterList filteredResults={filteredResults}/>}/>
             <Route path="/charactercard/:id" render={props=><CharacterCard match={props.match}results={results}/>} />
-            
-          
           </Switch>
         </main>
       </div>
