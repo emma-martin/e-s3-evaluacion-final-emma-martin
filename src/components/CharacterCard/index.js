@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import ReturnBtn from './ReturnBtn';
-import Loader from './Loader';
-// import PropTypes from 'prop-types'; can't set proptypes 'cause asyncrony
+import ReturnBtn from '../ReturnBtn/';
+import Loader from '../Loader/';
+import './CharacterCard.scss'
+import PropTypes from 'prop-types'; 
+// can't set proptypes 'cause asyncrony
 class CharacterCard extends Component {
     render() {
         const {results} = this.props;
@@ -28,9 +30,9 @@ class CharacterCard extends Component {
                         <div>
                         <h2 className="card__div--name">{name}</h2>
                             <div className="card__div--text">
-                                <p>Casa: {house}</p>
-                                <p>Nacimiento: {dob}</p>
-                                <p>Patronus: {patronus}</p>
+                                <p>Casa: {house || "Sin casa"}</p>
+                                <p>Nacimiento: {dob || "desconocido"}</p>
+                                <p>Patronus: {patronus || "sin patronus"}</p>
                                 <p>Estado: {deadOrAlive()}</p>
                             </div>
                         </div>
@@ -41,9 +43,9 @@ class CharacterCard extends Component {
         }
     }
 }
-// CharacterCard.propTypes ={
-//     name: PropTypes.string.isRequired,
-//     image: PropTypes.string.isRequired,
-//     house: PropTypes.string.isRequired
-// }
+
+CharacterCard.propTypes ={
+    results: PropTypes.array.isRequired,
+    loading: PropTypes.bool
+}
 export default CharacterCard;

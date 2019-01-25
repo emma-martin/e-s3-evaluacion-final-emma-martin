@@ -3,8 +3,9 @@ import './App.scss';
 import {getCharacters} from './services/service';
 import Search from './components/Search';
 import {Route, Switch} from 'react-router-dom';
-import CharacterList from './components/CharacterList';
-import CharacterCard from './components/CharacterCard';
+import CharacterList from './components/CharacterList/';
+import CharacterCard from './components/CharacterCard/';
+import CleanSearch from './components/CleanSearch';
 
 class App extends Component {
   constructor(props){
@@ -15,6 +16,7 @@ class App extends Component {
       loading: true
     }
     this.handleInput = this.handleInput.bind(this);
+    this.CleanSearch = this.CleanSearch.bind(this);
   }
 
   componentDidMount(){
@@ -23,7 +25,8 @@ class App extends Component {
       const resultsId = data.map((item, index) => {
         return {...item, id: index}
       });
-      setTimeout(()=> this.setState({loading: false}), 100);
+      
+      setTimeout(()=> this.setState({loading: false}), 1000);
       this.setState({
         results: resultsId
       })
@@ -45,6 +48,12 @@ class App extends Component {
       return filteredCharacter;
   }
 
+  CleanSearch(){
+    this.setState({
+      search: ""
+    })
+  }
+
   render() {
     const {results} = this.state;
     const filteredResults = this.filterCharacter();
@@ -53,14 +62,16 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Harry Potter Characters</h1>
             <Switch>
-              <Route exact path="/" render={()=><Search className="header__search" handleInput={this.handleInput}/>} />
+              <Route exact path="/" render={()=><Search className="header__search" handleInput={this.handleInput} inputValue={this.state.search}/>} />
             </Switch>
+            
         </header>
         <main className="main">
           <Switch>
-            <Route exact path="/" render={()=><CharacterList filteredResults={filteredResults}/>}/>
+            <Route exact path="/" render={()=><CharacterList filteredResults={filteredResults} loading={this.state.loading}/>}/>
             <Route path="/charactercard/:id" render={props=><CharacterCard match={props.match}results={results} loading={this.state.loading}/>} />
           </Switch>
+          <CleanSearch cleanInput={this.CleanSearch}/>
         </main>
       </div>
     );

@@ -1,0 +1,37 @@
+.card{
+    background-color: #F1FFFF;
+    padding: 50px 5px;
+  }
+  
+  .card__div{
+    background-color: #FE7E56;
+    color: white;
+    border: 1px solid black;
+    margin: auto;
+    height: 200px;
+    max-width: 400px;
+    display: flex;
+  }
+  
+  .card__div-img{
+    height: 100%;
+    max-width: 130px;
+  }
+  .card__div--name{
+    margin-left: auto;
+    padding-left: 30px;
+  
+    font-size: 20px;
+  }
+  .card__div--text{
+    text-align: left;
+    font-size: 16px;
+    p{
+      margin: 7px;
+  
+    }
+  }
+  
+  .card__div--span{
+    display: inline-block;
+  }
