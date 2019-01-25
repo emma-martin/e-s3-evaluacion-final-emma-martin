@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import ReturnBtn from './ReturnBtn';
 // import PropTypes from 'prop-types'; can't set proptypes 'cause asyncrony
 class CharacterCard extends Component {
@@ -18,22 +18,26 @@ class CharacterCard extends Component {
             const patronus = mago.patronus;
             const alive = mago.alive;
             const deadOrAlive =() =>{if(alive === true){
-                return <span>VIVO</span>
+                return <span className="card__div--span">VIVO</span>
             }else{
-                return <span role="img" aria-label="dead">💀</span>
+                return <span className="card__div--span" role="img" aria-label="dead">💀</span>
             }}
             return (
-                <Fragment>
-                    <div className="list__item-card">
-                        <img className="list__item-img" alt={name} src={image} />
-                        <h2>{name}</h2>
-                        <h3>Casa: {house}</h3>
-                        <h3>Nacimiento: {dob}</h3>
-                        <h3>Patronus: {patronus}</h3>
-                        <h3>Estado: {deadOrAlive()}</h3>
+                <div className="card">
+                    <div className="card__div">
+                        <img className="card__div-img" alt={name} src={image} />
+                        <div>
+                        <h2 className="card__div--name">{name}</h2>
+                            <div className="card__div--text">
+                                <p>Casa: {house}</p>
+                                <p>Nacimiento: {dob}</p>
+                                <p>Patronus: {patronus}</p>
+                                <p>Estado: {deadOrAlive()}</p>
+                            </div>
+                        </div>
                     </div>
                     <ReturnBtn />
-                </Fragment>
+                </div>
             );
         }
     }

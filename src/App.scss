@@ -49,16 +49,16 @@
 .main-list__item-card{
   background-color: #FE7E56;
   color: white;
-  border: 2px solid black;
+  border: 1px solid black;
   margin: 10px;
-  max-width: 180px;
+  max-width: 160px;
   height: 350px;
   position: relative;
 }
 
 .main-list__item-img{
   width: 100%;
-  height: 240px;
+  height: 230px;
 }
 
 .main-list__item-name{
@@ -73,3 +73,34 @@
   width: 100%;
   margin: 8px auto;
 }
+
+//characterCard
+
+.card{
+  background-color: #F1FFFF;
+  height: 100vh;
+  padding-top: 50px;
+}
+
+.card__div{
+  background-color: #FE7E56;
+  color: white;
+  border: 1px solid black;
+  margin: auto;
+  height: 200px;
+  max-width: 300px;
+  display: flex;
+}
+
+.card__div-img{
+  height: 100%;
+  max-width: 130px;
+}
+.card__div--name{
+  padding-left: 20px;
+}
+.card__div--text{
+  text-align: left;
+  padding-left: 5px;
+}
+
