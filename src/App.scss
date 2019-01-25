@@ -25,13 +25,13 @@
   font-size: 16px;
   outline: 1px solid black;
   margin-bottom: 40px;
+  &::placeholder {
+    padding-left: 5px;
+    text-transform: capitalize;
+  }
 }
 
 // main
-
-.main{
-
-}
 
 .main-list{
   list-style: none;
@@ -103,4 +103,5 @@
   text-align: left;
   padding-left: 5px;
 }
+
 
