@@ -5,15 +5,15 @@ class CharacterList extends Component {
     render() {
         const {filteredResults} = this.props;
         return (
-            <ul className="list">
+            <ul className="main-list">
                 {filteredResults.map(item => {
                     return (
-                        <li className="list__item" id={item.id} key={item.id}>
-                        <Link className="blablabla" to={`/charactercard/${item.id}`}>
-                        <div className="list__item-card">
-                            <img className="list__item-img" alt={item.name} src={item.image} />
-                            <h2>{item.name}</h2>
-                            <h3>{item.house}</h3>
+                        <li className="main-list__item" id={item.id} key={item.id}>
+                        <Link className="main-list__link" to={`/charactercard/${item.id}`}>
+                        <div className="main-list__item-card">
+                            <img className="main-list__item-img" alt={item.name} src={item.image} />
+                            <h2 className="main-list__item-name">{item.name}</h2>
+                            <h3 className="main-list__item-house">{item.house}</h3>
                         </div>
                         </Link>
                         </li>

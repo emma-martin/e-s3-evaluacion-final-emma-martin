@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import {getCharacters} from './services/service';
 import Search from './components/Search';
 import {Route, Switch} from 'react-router-dom';
@@ -49,9 +49,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1>Harry Potter Characters</h1>
+          <h1 className="App-title">Harry Potter Characters</h1>
             <Switch>
-              <Route exact path="/" render={()=><Search handleInput={this.handleInput}/>} />
+              <Route exact path="/" render={()=><Search className="header__search" handleInput={this.handleInput}/>} />
             </Switch>
         </header>
         <main className="main">

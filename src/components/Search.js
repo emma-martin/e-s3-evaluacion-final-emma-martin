@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 class Search extends Component {
     render() { 
         return ( 
-        <div className="search-field">
-            <input className="search-field__input" type="text" placeholder="find your fav character" onChange={this.props.handleInput}/>
+        <div className="header__search-field">
+            <input className="header__search-input" type="text" placeholder="find your fav character" onChange={this.props.handleInput}/>
         </div>
         );
     }
