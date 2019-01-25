@@ -17,16 +17,13 @@ class CharacterCard extends Component {
             const dob = date.slice(-4);
             const patronus = mago.patronus;
             const alive = mago.alive;
-            const deadOrAlive =() =>{if(alive === true){
-                return <span className="card__div--span">VIVO</span>
-            }else{
-                return <span className="card__div--span" role="img" aria-label="dead">💀</span>
-            }}
+            const deadOrAlive =() =>
+            (alive === true) ?<span className="card__div--span">VIVO</span>:<span className="card__div--span" role="img" aria-label="dead">💀</span>
             return (
                 <div className="card">
                     <div className="card__div">
                         <img className="card__div-img" alt={name} src={image} />
-                        <div className="card__div--content">
+                        <div>
                         <h2 className="card__div--name">{name}</h2>
                             <div className="card__div--text">
                                 <p>Casa: {house}</p>
