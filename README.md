@@ -1,6 +1,7 @@
 ## Harry Potter Characters' Directory
 
-This project shows a list of Harry Potter' characters (via AJAX request to [HP-API](https://hp-api.herokuapp.com/). Search through the characters' directory filtering by name.
+This project shows a list of Harry Potter' characters (via AJAX request to [HP-API](https://hp-api.herokuapp.com/). 
+It allows to search through the characters' directory filtering by name.
 
 #### Up & Running
 
