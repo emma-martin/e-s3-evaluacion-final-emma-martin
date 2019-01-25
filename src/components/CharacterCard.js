@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import ReturnBtn from './ReturnBtn';
+import Loader from './Loader';
 // import PropTypes from 'prop-types'; can't set proptypes 'cause asyncrony
 class CharacterCard extends Component {
     render() {
         const {results} = this.props;
+        const {loading} = this.props;
         const id = this.props.match.params.id;
         const mago = results[id]
-        if (results.length === 0) {
-            return <p>Loading</p>
+        if (results.length === 0 || loading) {
+            return <Loader />
         }
         else {
             const name = mago.name;

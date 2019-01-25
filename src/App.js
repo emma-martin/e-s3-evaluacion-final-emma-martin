@@ -11,7 +11,8 @@ class App extends Component {
     super(props);
     this.state ={
       search: "",
-      results: []
+      results: [],
+      loading: true
     }
     this.handleInput = this.handleInput.bind(this);
   }
@@ -22,6 +23,7 @@ class App extends Component {
       const resultsId = data.map((item, index) => {
         return {...item, id: index}
       });
+      setTimeout(()=> this.setState({loading: false}), 100);
       this.setState({
         results: resultsId
       })
@@ -57,7 +59,7 @@ class App extends Component {
         <main className="main">
           <Switch>
             <Route exact path="/" render={()=><CharacterList filteredResults={filteredResults}/>}/>
-            <Route path="/charactercard/:id" render={props=><CharacterCard match={props.match}results={results}/>} />
+            <Route path="/charactercard/:id" render={props=><CharacterCard match={props.match}results={results} loading={this.state.loading}/>} />
           </Switch>
         </main>
       </div>
