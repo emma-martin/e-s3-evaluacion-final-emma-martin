@@ -13,25 +13,43 @@ class App extends Component {
     this.state ={
       search: "",
       results: [],
-      loading: true
+      loading: true,
+      house: ""
     }
     this.handleInput = this.handleInput.bind(this);
     this.cleanInput = this.cleanInput.bind(this);
+
   }
 
   componentDidMount(){
-    getCharacters()
-    .then(data =>{
-      const resultsId = data.map((item, index) => {
-        return {...item, id: index}
-      });
-      
-      setTimeout(()=> this.setState({loading: false}), 2000);
+    const LsData = localStorage.getItem('LsData');
+    if(LsData !== null){
+      const parseData = JSON.parse(LsData);
+      setTimeout(()=> this.setState({loading: false}), 1000);  
       this.setState({
-        results: resultsId
-      })
-    });
+          results: parseData
+        })
+    } else {
+      getCharacters()
+      .then(data =>{
+        const resultsId = data.map((item, index) => {
+          return {...item, id: index}
+        });
+        setTimeout(()=> this.setState({loading: false}), 1000);
+        this.setState({
+          results: resultsId
+        });
+          this.saveData(resultsId);
+
+      });
+    } 
   }
+
+  saveData(data){
+    localStorage.setItem('LsData', JSON.stringify(data));
+  }
+
+
 
   handleInput(event){
     const userSearch = event.currentTarget.value;
@@ -39,6 +57,13 @@ class App extends Component {
       search: userSearch
     });
   }
+
+  cleanInput(){
+    this.setState({
+      search: ""
+    })
+  }
+
 
   filterCharacter(){
     const filteredCharacter = this.state.results.filter( item => {
@@ -49,11 +74,6 @@ class App extends Component {
   }
 
 
-  cleanInput(){
-    this.setState({
-      search: ""
-    })
-  }
 
 
   render() {
