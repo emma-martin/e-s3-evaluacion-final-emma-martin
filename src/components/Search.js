@@ -4,7 +4,7 @@ import CleanSearch from './CleanSearch';
 
 class Search extends Component {
     render() {
-        const {inputValue, cleanInput} = this.props;
+        const {inputValue, cleanInput, handleInput} = this.props;
         return ( 
         <div className="header__search-field">
             <input 
@@ -12,7 +12,7 @@ class Search extends Component {
             type="text" 
             placeholder="find your fav character" 
             value= {inputValue}
-            onChange={this.props.handleInput}/>
+            onChange={handleInput}/>
             {inputValue !== "" && <CleanSearch cleanInput={cleanInput}/>}
         </div>
         );

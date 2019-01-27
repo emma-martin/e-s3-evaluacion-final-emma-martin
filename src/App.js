@@ -53,7 +53,6 @@ class App extends Component {
     this.setState({
       search: ""
     })
-    console.log("hola")
   }
 
 
@@ -65,7 +64,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Harry Potter Characters</h1>
             <Switch>
-              <Route exact path="/" render={()=><Search className="header__search" cleanInput={this.cleanInput}handleInput={this.handleInput} inputValue={this.state.search}/>} />
+              <Route exact path="/" render={()=><Search className="header__search" cleanInput={this.cleanInput} handleInput={this.handleInput} inputValue={this.state.search}/>} />
             </Switch>
             
         </header>

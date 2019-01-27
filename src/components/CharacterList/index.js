@@ -6,8 +6,7 @@ import './CharacterList.scss'
 import Loader from '../Loader';
 class CharacterList extends Component {
     render() {
-        const {loading} = this.props;
-        const {filteredResults} = this.props;
+        const {filteredResults, loading} = this.props;
         if(filteredResults.length > 1 && loading === true){
             return <Loader />
             
