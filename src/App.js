@@ -16,6 +16,7 @@ class App extends Component {
       loading: true
     }
     this.handleInput = this.handleInput.bind(this);
+    this.cleanInput = this.cleanInput.bind(this);
   }
 
   componentDidMount(){
@@ -25,7 +26,7 @@ class App extends Component {
         return {...item, id: index}
       });
       
-      setTimeout(()=> this.setState({loading: false}), 1000);
+      setTimeout(()=> this.setState({loading: false}), 2000);
       this.setState({
         results: resultsId
       })
@@ -47,6 +48,15 @@ class App extends Component {
       return filteredCharacter;
   }
 
+
+  cleanInput(){
+    this.setState({
+      search: ""
+    })
+    console.log("hola")
+  }
+
+
   render() {
     const {results} = this.state;
     const filteredResults = this.filterCharacter();
@@ -55,7 +65,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Harry Potter Characters</h1>
             <Switch>
-              <Route exact path="/" render={()=><Search className="header__search" handleInput={this.handleInput} inputValue={this.state.search}/>} />
+              <Route exact path="/" render={()=><Search className="header__search" cleanInput={this.cleanInput}handleInput={this.handleInput} inputValue={this.state.search}/>} />
             </Switch>
             
         </header>

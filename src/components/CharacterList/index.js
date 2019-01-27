@@ -8,7 +8,7 @@ class CharacterList extends Component {
     render() {
         const {loading} = this.props;
         const {filteredResults} = this.props;
-        if(filteredResults.length < 1 && loading === true){
+        if(filteredResults.length > 1 && loading === true){
             return <Loader />
             
         } else if(filteredResults.length < 1 && loading === false){

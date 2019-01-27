@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class CleanSearch extends Component {
-
     render() { 
         const {cleanInput} = this.props;
         return ( 

@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CleanSearch from './CleanSearch';
 
 class Search extends Component {
     render() {
-        const {inputValue} = this.props;
+        const {inputValue, cleanInput} = this.props;
+        const cleanLogic = () =>{
+            if(inputValue !== ""){
+                return <CleanSearch cleanInput={cleanInput}/>
+            } else{
+                return
+            }
+        }
+
         return ( 
         <div className="header__search-field">
             <input 
@@ -12,6 +21,7 @@ class Search extends Component {
             placeholder="find your fav character" 
             value= {inputValue}
             onChange={this.props.handleInput}/>
+            {cleanLogic()}
         </div>
         );
     }
