@@ -1,11 +1,10 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import CleanSearch from './CleanSearch';
-import SelectHouse from './SelectHouse';
 
 class Search extends Component {
     render() {
-        const {inputValue, cleanInput, handleInput, handleSelect, selectValue} = this.props;
+        const {inputValue, cleanInput, handleInput, selectValue, handleSelect} = this.props;
         return ( 
             <Fragment>
             <div className="header__search-field">
@@ -16,10 +15,20 @@ class Search extends Component {
                 value= {inputValue}
                 onChange={handleInput}/>
                 {inputValue !== "" && <CleanSearch cleanInput={cleanInput}/>}
-                
-                <SelectHouse 
-                handleSelect={handleSelect}
-                selectValue={selectValue} />
+            </div>
+            <div>
+                <label htmlFor="house-select">Elige una casa</label>
+                <select id="house-select" 
+                onChange={handleSelect} 
+                value={selectValue} 
+                multiple={false}>
+                    <option value="todas">--todas las casas--</option>
+                    <option value="Gryffindor">Gryffindor</option>
+                    <option value="Slytherin">Slytherin</option>
+                    <option value="Hufflepuff">Hufflepuff</option>
+                    <option value="Ravenclaw">Ravenclaw</option>
+
+                </select>
             </div>
             </Fragment>
         );

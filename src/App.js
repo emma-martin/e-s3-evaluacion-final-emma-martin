@@ -15,10 +15,11 @@ class App extends Component {
       results: [],
       loading: true,
       select: "",
-      house: ""
+      houseList: []
     }
     this.handleInput = this.handleInput.bind(this);
     this.cleanInput = this.cleanInput.bind(this);
+
     this.handleSelect = this.handleSelect.bind(this);
 
   }
@@ -75,24 +76,28 @@ class App extends Component {
   handleSelect(event){
     const userSelect = event.target.value;
     this.setState({
-      house: userSelect
-    });
-    console.log(this.state.house)
+      select: userSelect
+    }, this.filterHouse);
+    // console.log(this.state.select)
   }
 
   filterHouse(){
-    const filteredHouses = this.state.results.filter(item => item.house.includes(this.state.select)
-    );
-    return filteredHouses;
+    const select = this.state.select;
+    const filteredHouse = this.state.results.filter(item=>
+      item.house === select
+      )
+      this.setState({
+        houseList: filteredHouse
+      })
+      console.log(this.state.houseList)
   }
-
-
+  
 
 
   render() {
     const {results} = this.state;
     const filteredResults = this.filterCharacter();
-    const filteredHouses = this.filterHouse();
+
     return (
       <div className="App">
         <header className="App-header">
@@ -102,9 +107,9 @@ class App extends Component {
               cleanInput={this.cleanInput} 
               handleInput={this.handleInput} 
               inputValue={this.state.search}
+              selectValue={this.state.select}
               handleSelect={this.handleSelect}
-              
-              selectValue={this.state.house}
+
               />} />
             </Switch>
             
@@ -114,7 +119,8 @@ class App extends Component {
             <Route exact path="/" render={()=><CharacterList 
             filteredResults={filteredResults} 
             loading={this.state.loading}
-            filteredHouses={filteredHouses}
+            filteredHouse={this.state.houseList}
+
             />}/>
             <Route path="/charactercard/:id" render={props=><CharacterCard match={props.match}results={results} loading={this.state.loading}/>} />
           </Switch>

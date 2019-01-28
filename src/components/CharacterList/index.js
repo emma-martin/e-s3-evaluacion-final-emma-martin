@@ -6,31 +6,24 @@ import './CharacterList.scss'
 import Loader from '../Loader';
 class CharacterList extends Component {
     render() {
-        const {filteredResults, loading, filteredHouses} = this.props;
-        if(filteredResults.length > 1 && loading === true){
+        const {filteredResults, loading, filteredHouse} = this.props;
+        let filterArray;
+        if (filteredHouse.length === 0){
+            filterArray = filteredResults;
+        } else{
+            filterArray = filteredHouse;
+        }
+
+        if(filterArray.length > 1 && loading === true){
             return <Loader />
-        } else if(filteredResults.length < 1 && loading === false){
+        } else if(filterArray.length < 1 && loading === false){
             return <NoResults />
         } 
-        
-        // test
-
-        else if(filteredHouses !== null ){
-            return <div>
-                {filteredHouses.map(item=>{
-                    return (
-                        <li key={item.id}>
-                            <p>{item.house }</p>
-                        </li>
-                    )
-                })}
-                </div>
-        }
         
         else {
             return (
                 <ul className="main-list">
-                    {filteredResults.map(item => {
+                    {filterArray.map(item => {
                         return (
                             <li className="main-list__item" id={item.id} key={item.id}>
                             <Link className="main-list__link" to={`/charactercard/${item.id}`}>
