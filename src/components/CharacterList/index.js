@@ -6,13 +6,28 @@ import './CharacterList.scss'
 import Loader from '../Loader';
 class CharacterList extends Component {
     render() {
-        const {filteredResults, loading} = this.props;
+        const {filteredResults, loading, filteredHouses} = this.props;
         if(filteredResults.length > 1 && loading === true){
             return <Loader />
-            
         } else if(filteredResults.length < 1 && loading === false){
             return <NoResults />
-        } else {
+        } 
+        
+        // test
+
+        else if(filteredHouses !== null ){
+            return <div>
+                {filteredHouses.map(item=>{
+                    return (
+                        <li key={item.id}>
+                            <p>{item.house }</p>
+                        </li>
+                    )
+                })}
+                </div>
+        }
+        
+        else {
             return (
                 <ul className="main-list">
                     {filteredResults.map(item => {
